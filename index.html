@@ -1,0 +1,1334 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aizza Nawaz · MBBS · Gajju Khan Medical College</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --r-card:   14px;
+  --r-input:  12px;
+  --r-pill:   50px;
+  --r-img:    10px;
+  --r-metric: 16px;
+}
+body.light {
+  --canvas:            #FAF8F5;
+  --canvas-alt:        #F5EAE8;
+  --card-bg:           #FFFEFB;
+  --card-shadow:       0 6px 28px rgba(44,38,39,0.05), 0 1px 4px rgba(44,38,39,0.03);
+  --card-shadow-hover: 0 18px 48px rgba(44,38,39,0.09), 0 2px 8px rgba(44,38,39,0.04);
+  --navy:              #2C2627;
+  --navy-deep:         #3D2F30;
+  --teal:              #D8EBE7;
+  --seafoam:           #8BBDB7;
+  --seafoam-muted:     #5A9490;
+  --rose:              #C97F79;
+  --deep-rose:         #A85E58;
+  --blush:             #F5EAE8;
+  --blush-card:        #FBF4F3;
+  --text-primary:      #221F20;
+  --text-mid:          #6B5E5F;
+  --text-light:        #A8969A;
+  --border:            rgba(196,148,145,0.22);
+  --border-focus:      rgba(139,189,183,0.5);
+  --divider:           rgba(196,148,145,0.14);
+  --nav-bg:            rgba(250,248,245,0.96);
+  --hero-bg:           #3D2F30;
+  --subscribe-bg:      #3D2F30;
+  --suggest-bg:        #F5EAE8;
+  --gallery-bg:        #F5EAE8;
+  --journey-bg:        #FAF8F5;
+  --achieve-bg:        #FAF8F5;
+  --input-border:      rgba(196,148,145,0.28);
+  --focus-glow:        0 0 0 3px rgba(139,189,183,0.28);
+  --progress-track:    rgba(196,148,145,0.16);
+  --wave-opacity:      0.04;
+}
+body.dark {
+  --canvas:            #0B132B;
+  --canvas-alt:        #0D1A32;
+  --card-bg:           #111D35;
+  --card-shadow:       0 10px 40px rgba(0,0,0,0.28);
+  --card-shadow-hover: 0 22px 56px rgba(0,0,0,0.42);
+  --navy:              #D4EAE6;
+  --navy-deep:         #0B132B;
+  --teal:              #4A7C7A;
+  --seafoam:           #6AADA8;
+  --seafoam-muted:     #4A7C7A;
+  --rose:              #E8A7A1;
+  --deep-rose:         #C47E78;
+  --blush:             #1A2540;
+  --blush-card:        #162038;
+  --text-primary:      #E8F4F2;
+  --text-mid:          #9BBAB6;
+  --text-light:        #5F8A86;
+  --border:            rgba(74,124,122,0.22);
+  --border-focus:      rgba(139,189,183,0.45);
+  --divider:           rgba(74,124,122,0.14);
+  --nav-bg:            rgba(11,19,43,0.96);
+  --hero-bg:           #0F1E36;
+  --subscribe-bg:      #0F1E36;
+  --suggest-bg:        #0D1A32;
+  --gallery-bg:        #1A2540;
+  --journey-bg:        #0B132B;
+  --achieve-bg:        #0B132B;
+  --input-border:      rgba(74,124,122,0.35);
+  --focus-glow:        0 0 0 3px rgba(106,173,168,0.3);
+  --progress-track:    rgba(74,124,122,0.18);
+  --wave-opacity:      0.015;
+}
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background: var(--canvas);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  transition: background 0.45s ease, color 0.45s ease;
+}
+nav, section, .cert-card, .metric-card, .g-item, .suggest-form-row,
+.jn-dot-wrap, .progress-bar-wrap, .ap-panel, footer {
+  transition: background 0.45s ease, border-color 0.35s ease,
+              box-shadow 0.35s ease, color 0.35s ease;
+}
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--blush); }
+::-webkit-scrollbar-thumb { background: var(--rose); border-radius: 3px; }
+img { max-width: 100%; display: block; }
+a { text-decoration: none; color: inherit; }
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  background: var(--nav-bg);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid var(--border);
+  height: 66px;
+  padding: 0 5vw;
+  display: flex; align-items: center; justify-content: space-between;
+  transition: all 0.3s cubic-bezier(0.25,0.8,0.25,1);
+}
+.nav-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.22rem;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: 0.07em;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+.nav-logo .logo-tulip { font-style: normal; font-size: 1rem; letter-spacing: 0; transition: transform 0.3s cubic-bezier(0.25,0.8,0.25,1); }
+.nav-logo:hover .logo-tulip { transform: rotate(-12deg) scale(1.15); }
+.nav-links { display: flex; gap: 2.25rem; align-items: center; }
+.nav-links a {
+  font-size: 0.73rem; font-weight: 600; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--text-mid);
+  position: relative; transition: color 0.3s cubic-bezier(0.25,0.8,0.25,1);
+}
+.nav-links a::after {
+  content: ''; position: absolute; bottom: -3px; left: 0; right: 0; height: 1px;
+  background: var(--rose); transform: scaleX(0); transition: transform 0.3s cubic-bezier(0.25,0.8,0.25,1);
+}
+.nav-links a:hover { color: var(--deep-rose); }
+.nav-links a:hover::after { transform: scaleX(1); }
+.nav-right { display: flex; align-items: center; gap: 0.75rem; }
+.theme-btn {
+  background: var(--card-bg); border: 1px solid var(--border); border-radius: 50%;
+  width: 34px; height: 34px; display: flex; align-items: center; justify-content: center;
+  cursor: pointer; font-size: 0.9rem; transition: all 0.3s cubic-bezier(0.25,0.8,0.25,1);
+}
+.theme-btn:hover { transform: scale(1.1); border-color: var(--rose); }
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+.hamburger span { display: block; width: 22px; height: 1.5px; background: var(--text-primary); transition: all 0.3s; }
+#hero {
+  min-height: 100vh; background: var(--hero-bg);
+  display: flex; align-items: center; justify-content: center;
+  text-align: center; position: relative; overflow: hidden;
+  padding: 120px 6vw 110px;
+}
+#hero::before {
+  content: ''; position: absolute; top: 42%; left: 50%; transform: translate(-50%, -50%);
+  width: min(860px, 110vw); height: min(700px, 90vw);
+  background: radial-gradient(ellipse at center, rgba(247,227,225,0.07) 0%, rgba(232,167,161,0.04) 35%, rgba(212,234,230,0.015) 60%, transparent 80%);
+  pointer-events: none; z-index: 1;
+}
+#hero::after {
+  content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 35%;
+  background: linear-gradient(to top, rgba(74,124,122,0.06) 0%, transparent 100%);
+  pointer-events: none; z-index: 1;
+}
+.hero-waves { position: absolute; inset: 0; pointer-events: none; opacity: var(--wave-opacity); z-index: 0; }
+.hero-content {
+  position: relative; z-index: 2; max-width: 720px; width: 100%;
+  animation: fadeUp 1s ease both; display: flex; flex-direction: column; align-items: center;
+}
+.hero-avatar-wrap { margin-bottom: 2rem; position: relative; display: inline-block; }
+.hero-avatar {
+  width: 148px; height: 148px; border-radius: 50%; object-fit: cover;
+  border: 3px solid transparent; background-clip: padding-box;
+  box-shadow: 0 0 0 2px rgba(232,167,161,0.55), 0 0 0 5px rgba(212,234,230,0.2), 0 20px 50px rgba(15,30,54,0.45);
+  transition: box-shadow 0.4s cubic-bezier(0.25,0.8,0.25,1), transform 0.4s cubic-bezier(0.25,0.8,0.25,1);
+  display: block;
+}
+.hero-avatar:hover {
+  box-shadow: 0 0 0 2px rgba(232,167,161,0.85), 0 0 0 7px rgba(212,234,230,0.3), 0 24px 60px rgba(15,30,54,0.55);
+  transform: scale(1.03);
+}
+.hero-avatar-placeholder {
+  width: 148px; height: 148px; border-radius: 50%;
+  background: linear-gradient(135deg, rgba(232,167,161,0.15), rgba(212,234,230,0.12));
+  border: 2px dashed rgba(232,167,161,0.35);
+  display: flex; align-items: center; justify-content: center;
+  flex-direction: column; gap: 0.4rem; font-size: 0.62rem;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(232,167,161,0.5); font-family: 'Plus Jakarta Sans', sans-serif;
+}
+.hero-avatar-placeholder span { font-size: 1.5rem; opacity: 0.4; }
+.hero-eyebrow {
+  font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.62rem; font-weight: 700;
+  letter-spacing: 0.32em; text-transform: uppercase; color: var(--rose);
+  margin-bottom: 2.4rem; display: flex; align-items: center; justify-content: center;
+  gap: 0.8rem; opacity: 0.88;
+}
+.ey-line { display: inline-block; width: 26px; height: 1px; background: linear-gradient(90deg, transparent, var(--rose)); }
+.ey-line.right { background: linear-gradient(90deg, var(--rose), transparent); }
+.ey-tulip { font-size: 0.78rem; letter-spacing: 0; }
+h1.hero-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(4.5rem, 11vw, 9.5rem);
+  font-weight: 300; color: #FDFBF7; line-height: 0.88;
+  letter-spacing: -0.015em; margin-bottom: 2rem;
+}
+h1.hero-name .name-first { display: block; font-style: normal; }
+h1.hero-name .name-last { display: block; font-style: italic; color: var(--rose); }
+.hero-class-line {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: clamp(0.6rem, 1.05vw, 0.7rem); font-weight: 700; font-style: normal;
+  letter-spacing: 0.35em; text-transform: uppercase; color: rgba(212,234,230,0.5); margin-bottom: 0.55rem;
+}
+.hero-sub {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: clamp(0.65rem, 1.2vw, 0.78rem); font-weight: 600;
+  letter-spacing: 0.24em; text-transform: uppercase; color: rgba(212,234,230,0.65);
+  margin-bottom: 4rem; display: flex; align-items: center; justify-content: center; gap: 0.7rem;
+}
+.hero-sub .dot-sep { opacity: 0.3; font-weight: 300; }
+.hero-sub .future-doctor { color: var(--rose); opacity: 1; font-weight: 700; letter-spacing: 0.28em; }
+.hero-quotes { display: flex; flex-direction: column; gap: 1.1rem; align-items: center; width: 100%; max-width: 580px; }
+.hero-quote {
+  width: 100%; font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(0.97rem, 1.7vw, 1.14rem); font-style: italic;
+  color: rgba(253,251,247,0.72); line-height: 1.82;
+  padding: 1.25rem 1.6rem 1.25rem 1.55rem;
+  background: rgba(232,167,161,0.03); border: 1px solid rgba(232,167,161,0.12);
+  border-left: 2px solid rgba(232,167,161,0.48); border-radius: 0 10px 10px 0;
+  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  text-align: left; position: relative; animation: fadeUp 1.25s ease both;
+  transition: background 0.4s cubic-bezier(0.25,0.8,0.25,1), border-color 0.4s cubic-bezier(0.25,0.8,0.25,1), transform 0.4s cubic-bezier(0.25,0.8,0.25,1);
+}
+.hero-quote:hover { background: rgba(232,167,161,0.06); border-left-color: rgba(232,167,161,0.72); transform: translateX(3px); }
+.hero-quote:nth-child(2) { animation-delay: 0.22s; }
+.hero-quote-rose { display: inline-block; margin-left: 0.55rem; font-size: 0.85rem; font-style: normal; vertical-align: middle; opacity: 0.6; transition: opacity 0.25s, transform 0.25s; }
+.hero-quote:hover .hero-quote-rose { opacity: 1; transform: scale(1.12); }
+.hero-scroll-hint {
+  position: absolute; bottom: 2.4rem; left: 50%; transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 0.4rem;
+  color: rgba(212,234,230,0.32); font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.52rem; letter-spacing: 0.3em; text-transform: uppercase;
+  animation: breatheScroll 3s ease-in-out infinite; z-index: 3;
+}
+.scroll-line { width: 1px; height: 30px; background: linear-gradient(to bottom, rgba(232,167,161,0.55), transparent); }
+.scroll-chevron { width: 9px; height: 9px; border-right: 1.5px solid rgba(232,167,161,0.45); border-bottom: 1.5px solid rgba(232,167,161,0.45); transform: rotate(45deg); margin-top: -5px; }
+@keyframes breatheScroll {
+  0%, 100% { opacity: 0.32; transform: translateX(-50%) translateY(0px); }
+  50%       { opacity: 0.72; transform: translateX(-50%) translateY(8px); }
+}
+section { padding: 96px 5vw; position: relative; overflow: hidden; }
+.section-wave { position: absolute; inset: 0; pointer-events: none; opacity: var(--wave-opacity); z-index: 0; }
+.section-inner { position: relative; z-index: 1; }
+.eyebrow { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; color: var(--deep-rose); margin-bottom: 0.65rem; display: flex; align-items: center; gap: 0.7rem; }
+.eyebrow::before { content: '🌷'; font-size: 0.75rem; }
+h2.sec-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 4.5vw, 3.4rem); font-weight: 400; color: var(--text-primary); line-height: 1.12; margin-bottom: 1.4rem; }
+h2.sec-title em { font-style: italic; color: var(--deep-rose); }
+.about-layout { display: flex; flex-direction: column; gap: 3rem; margin-top: 2.5rem; }
+.about-bio-block { max-width: 760px; }
+.about-bio-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.35rem, 2.5vw, 1.75rem); font-weight: 400; font-style: italic; color: var(--deep-rose); margin-bottom: 1.1rem; }
+.about-text p { font-size: 0.96rem; line-height: 1.95; color: var(--text-mid); margin-bottom: 1.1rem; font-weight: 300; }
+.about-text p strong { color: var(--text-primary); font-weight: 600; }
+.metrics-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+.metric-card {
+  background: var(--card-bg); box-shadow: var(--card-shadow); border: 1px solid var(--border);
+  border-radius: var(--r-metric); padding: 2rem 1.25rem; text-align: center;
+  transition: all 0.3s cubic-bezier(0.25,0.8,0.25,1); position: relative; overflow: hidden;
+}
+.metric-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--rose), var(--seafoam)); }
+.metric-card:hover { transform: translateY(-4px); box-shadow: var(--card-shadow-hover); }
+.metric-value { font-family: 'Cormorant Garamond', serif; font-size: 2.4rem; font-weight: 500; color: var(--text-primary); line-height: 1; margin-bottom: 0.5rem; }
+.metric-value em { font-style: italic; color: var(--deep-rose); }
+.metric-label { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-light); line-height: 1.45; }
+.gallery-header { display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1.5rem; margin-bottom: 2.5rem; }
+.gallery-subtext { font-size: 0.88rem; color: var(--text-mid); font-style: italic; margin-top: 0.3rem; font-weight: 300; }
+.ig-btn {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  background: var(--navy-deep); color: #FDFBF7; padding: 0.72rem 1.5rem;
+  border-radius: var(--r-input); font-size: 0.72rem; font-weight: 700;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  transition: all 0.3s cubic-bezier(0.25,0.8,0.25,1); flex-shrink: 0;
+}
+.ig-btn:hover { background: var(--deep-rose); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(184,107,101,0.3); }
+#gallery-grid { columns: 3; column-gap: 1.25rem; width: 100%; }
+.g-item { break-inside: avoid; margin-bottom: 1.25rem; position: relative; overflow: hidden; border-radius: 8px; cursor: zoom-in; display: block; }
+.g-item img { width: 100%; height: auto; display: block; border-radius: 8px; transition: transform 0.5s cubic-bezier(0.25,0.8,0.25,1), opacity 0.35s ease; }
+.g-item:hover img { transform: scale(1.03); opacity: 0.92; }
+.g-del { position: absolute; top: 0.5rem; right: 0.5rem; z-index: 2; background: rgba(15,30,54,0.7); color: #fff; border: none; border-radius: 50%; width: 26px; height: 26px; font-size: 0.7rem; cursor: pointer; display: none; align-items: center; justify-content: center; transition: background 0.2s; }
+.g-del:hover { background: var(--deep-rose); }
+.g-caption { display: none !important; }
+.achieve-intro { max-width: 600px; font-size: 0.95rem; color: var(--text-mid); line-height: 1.9; margin-bottom: 3rem; font-weight: 300; }
+.achieve-intro strong { color: var(--text-primary); font-weight: 600; }
+#certs-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(295px, 1fr)); gap: 1.5rem; }
+.cert-card {
+  background: var(--card-bg); box-shadow: var(--card-shadow); border: 1px solid var(--border);
+  border-radius: var(--r-card); padding: 1.85rem 1.75rem;
+  position: relative; overflow: hidden; transition: all 0.3s cubic-bezier(0.25,0.8,0.25,1);
+}
+.cert-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2.5px; background: linear-gradient(90deg, var(--rose), var(--seafoam)); }
+.cert-card:hover { transform: translateY(-5px); box-shadow: var(--card-shadow-hover); }
+.cert-inst { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--seafoam-muted); margin-bottom: 0.55rem; display: flex; align-items: center; gap: 0.45rem; }
+.cert-inst::before { content: ''; width: 14px; height: 1px; background: var(--seafoam-muted); display: inline-block; }
+.cert-title { font-family: 'Cormorant Garamond', serif; font-size: 1.08rem; font-weight: 500; color: var(--text-primary); line-height: 1.45; margin-bottom: 0.6rem; }
+.cert-meta { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.85rem; flex-wrap: wrap; }
+.cert-year { font-size: 0.7rem; font-weight: 700; color: var(--deep-rose); letter-spacing: 0.1em; }
+.cert-credits { font-size: 0.68rem; color: var(--text-light); }
+.cert-desc { font-size: 0.8rem; color: var(--text-mid); line-height: 1.65; margin-bottom: 1.15rem; font-weight: 300; }
+.cert-link { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-primary); border-bottom: 1.5px solid var(--rose); padding-bottom: 2px; transition: all 0.3s cubic-bezier(0.25,0.8,0.25,1); }
+.cert-link:hover { color: var(--deep-rose); border-color: var(--deep-rose); }
+.cert-del { position: absolute; top: 1rem; right: 1rem; background: none; border: none; color: var(--rose); font-size: 1.05rem; cursor: pointer; display: none; transition: color 0.2s; }
+.cert-del:hover { color: var(--deep-rose); }
+#subscribe { background: var(--subscribe-bg); padding: 96px 5vw; position: relative; overflow: hidden; }
+.sub-waves { position: absolute; inset: 0; pointer-events: none; opacity: 0.04; }
+.sub-inner { position: relative; z-index: 2; max-width: 480px; margin: 0 auto; text-align: center; }
+.sub-rose { font-size: 2rem; margin-bottom: 1.2rem; display: block; }
+.sub-headline { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.6rem, 3.5vw, 2.4rem); font-weight: 300; color: #FDFBF7; line-height: 1.25; margin-bottom: 0.85rem; }
+.sub-cta { font-size: 0.88rem; color: rgba(212,234,230,0.65); line-height: 1.75; margin-bottom: 2.25rem; font-weight: 300; }
+.sub-form { display: flex; flex-direction: column; gap: 0.75rem; align-items: center; }
+.sub-input-wrap { position: relative; width: 100%; }
+.sub-input-wrap .rose-icon { position: absolute; left: 1.1rem; top: 50%; transform: translateY(-50%); font-size: 1rem; pointer-events: none; }
+#sub-email { width: 100%; padding: 0.95rem 1.25rem 0.95rem 2.8rem; background: rgba(255,255,255,0.07); border: 1px solid var(--input-border); border-radius: 50px; color: #FDFBF7; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.88rem; font-weight: 300; letter-spacing: 0.03em; outline: none; transition: all 0.3s cubic-bezier(0.25,0.8,0.25,1); }
+#sub-email::placeholder { color: rgba(212,234,230,0.35); }
+#sub-email:focus { border-color: var(--seafoam); box-shadow: var(--focus-glow); background: rgba(255,255,255,0.1); }
+.sub-btn { background: var(--rose); border: none; padding: 0.9rem 2.5rem; border-radius: 50px; color: white; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; cursor: pointer; transition: all 0.3s cubic-bezier(0.25,0.8,0.25,1); width: 100%; }
+.sub-btn:hover { background: var(--deep-rose); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(196,126,120,0.4); }
+footer { background: var(--subscribe-bg); border-top: 1px solid rgba(255,255,255,0.05); padding: 2rem 5vw; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.75rem; }
+footer p { font-size: 0.72rem; color: rgba(212,234,230,0.3); letter-spacing: 0.07em; }
+.footer-rose { color: var(--rose); }
+#admin-overlay { display: none; position: fixed; inset: 0; z-index: 9000; background: rgba(11,19,43,0.65); backdrop-filter: blur(8px); animation: fadeIn 0.2s ease; }
+#admin-overlay.open { display: flex; align-items: flex-start; justify-content: flex-end; }
+#admin-panel { background: var(--canvas); width: min(510px, 96vw); height: 100vh; overflow-y: auto; box-shadow: -24px 0 70px rgba(15,30,54,0.3); animation: slideLeft 0.3s cubic-bezier(0.25,0.8,0.25,1); }
+.ap-header { background: var(--navy-deep); padding: 1.4rem 2rem; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 10; }
+.ap-header h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-style: italic; color: #FDFBF7; }
+.ap-close { background: none; border: none; color: var(--rose); font-size: 1.4rem; cursor: pointer; line-height: 1; transition: color 0.2s; }
+.ap-close:hover { color: var(--deep-rose); }
+.ap-body { padding: 1.75rem 2rem; }
+.ap-sec { margin-bottom: 2.25rem; }
+.ap-sec-title { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--deep-rose); margin-bottom: 0.9rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border); }
+.af { margin-bottom: 0.85rem; }
+.af label { display: block; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-mid); margin-bottom: 0.35rem; }
+.af input, .af textarea { width: 100%; padding: 0.65rem 0.9rem; border: 1px solid var(--border); border-radius: 12px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.84rem; color: var(--text-primary); background: var(--card-bg); outline: none; transition: all 0.3s cubic-bezier(0.25,0.8,0.25,1); }
+.af input:focus, .af textarea:focus { border-color: var(--seafoam); box-shadow: var(--focus-glow); }
+.af textarea { resize: vertical; min-height: 72px; }
+.ap-btn { background: var(--navy-deep); color: #FDFBF7; border: none; padding: 0.65rem 1.2rem; border-radius: 8px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer; width: 100%; margin-top: 0.4rem; transition: all 0.3s cubic-bezier(0.25,0.8,0.25,1); }
+.ap-btn:hover { background: var(--deep-rose); }
+.ap-hint { font-size: 0.7rem; color: var(--text-light); margin-top: 0.6rem; line-height: 1.5; }
+#toast { position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%) translateY(80px); background: var(--navy-deep); color: #FDFBF7; padding: 0.9rem 2rem; border-radius: 8px; font-size: 0.83rem; letter-spacing: 0.04em; border-left: 3px solid var(--rose); z-index: 9999; transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1), opacity 0.4s; opacity: 0; box-shadow: 0 12px 40px rgba(15,30,54,0.3); pointer-events: none; }
+#toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+.reveal { opacity: 0; transform: translateY(26px); transition: opacity 0.75s ease, transform 0.75s ease; }
+.reveal.in { opacity: 1; transform: translateY(0); }
+@keyframes fadeUp { from { opacity:0; transform: translateY(28px); } to { opacity:1; transform:translateY(0); } }
+@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@keyframes slideLeft { from { transform:translateX(100%); } to { transform:translateX(0); } }
+#about      { background: var(--journey-bg); }
+#journey    { background: var(--journey-bg); }
+#gallery    { background: var(--gallery-bg); }
+#achievements { background: var(--achieve-bg); }
+#suggest    { background: var(--suggest-bg); }
+#subscribe  { background: var(--subscribe-bg); }
+body.light { background: #FAF8F5; color: #221F20; }
+body.light .cert-card  { background: linear-gradient(158deg, #FFFEFB 0%, #FBF7F6 100%); }
+body.light .metric-card { background: linear-gradient(145deg, #FFFEFB 0%, #F9F5F4 100%); }
+body.light .jn-dot-wrap { background: linear-gradient(145deg, #FFFEFB, #F8F3F2); }
+body.light .suggest-form-row { background: #FFFEFB; }
+body.light .af input, body.light .af textarea { background: #FFFEFB; color: #221F20; border-color: rgba(196,148,145,0.25); }
+body.light .nav-links.open  { background: rgba(250,248,245,0.98); }
+body.light #admin-panel     { background: #FAF8F5; }
+body.light .ap-header       { background: #3D2F30; }
+body.dark { background: #0B132B; color: #E8F4F2; }
+body.dark .cert-card   { background: #111D35; }
+body.dark .metric-card { background: #111D35; }
+body.dark .jn-dot-wrap { background: #162038; border-color: rgba(74,124,122,0.25); }
+body.dark .suggest-form-row { background: #111D35; border-color: rgba(74,124,122,0.22); }
+body.dark #suggest-input { color: #E8F4F2; }
+body.dark .af input, body.dark .af textarea { background: #0D1A32; color: #E8F4F2; border-color: rgba(74,124,122,0.25); }
+body.dark .nav-links.open   { background: rgba(11,19,43,0.98); }
+body.dark #admin-panel      { background: #0B132B; }
+body.dark .ap-header        { background: #0F1E36; }
+@media (max-width: 900px) {
+  .about-layout { flex-direction: column; gap: 2.5rem; }
+  .metrics-grid { grid-template-columns: 1fr 1fr; }
+  #gallery-grid { columns: 2; column-gap: 1rem; }
+  .nav-links { display: none; }
+  .nav-links.open { display: flex; flex-direction: column; gap: 1.1rem; position: absolute; top: 66px; left: 0; right: 0; background: var(--nav-bg); padding: 1.5rem 5vw; border-bottom: 1px solid var(--border); z-index: 99; }
+  .hamburger { display: flex; }
+}
+@media (max-width: 560px) {
+  #gallery-grid { columns: 1; column-gap: 0; }
+  #certs-grid { grid-template-columns: 1fr; }
+  .gallery-header { flex-direction: column; align-items: flex-start; }
+  footer { flex-direction: column; text-align: center; }
+  .metrics-grid { grid-template-columns: 1fr 1fr; }
+}
+.journey-track { position: relative; display: flex; align-items: flex-start; justify-content: space-between; gap: 0; margin-top: 3.5rem; padding-bottom: 1rem; }
+.journey-track::before { content: ''; position: absolute; top: 28px; left: 28px; right: 0; height: 1px; background: linear-gradient(90deg, var(--rose) 0%, var(--seafoam) 60%, rgba(139,189,183,0.18) 85%, transparent 100%); z-index: 0; }
+.journey-node { display: flex; flex-direction: column; align-items: center; flex: 1; position: relative; z-index: 1; cursor: default; }
+.journey-node:last-child { flex: 0 0 auto; min-width: 80px; }
+.jn-dot-wrap { width: 56px; height: 56px; border-radius: 50%; background: var(--card-bg); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; margin-bottom: 1.1rem; transition: all 0.3s cubic-bezier(0.25,0.8,0.25,1); box-shadow: var(--card-shadow); position: relative; }
+.journey-node.active .jn-dot-wrap { background: linear-gradient(135deg, var(--rose), var(--deep-rose)); border-color: var(--deep-rose); box-shadow: 0 0 0 6px rgba(232,167,161,0.15), 0 12px 32px rgba(196,126,120,0.25); }
+.journey-node.future .jn-dot-wrap { background: transparent; border: 1px dashed rgba(139,189,183,0.4); box-shadow: none; }
+.journey-node:hover:not(.future) .jn-dot-wrap { transform: translateY(-4px); box-shadow: 0 16px 36px rgba(232,167,161,0.2); }
+.jn-icon { font-size: 1.3rem; line-height: 1; }
+.journey-node.future .jn-icon { opacity: 0.35; }
+.journey-node.active .jn-dot-wrap::after { content: ''; position: absolute; inset: -5px; border-radius: 50%; border: 1px solid rgba(232,167,161,0.35); animation: pulseRing 2.5s ease-in-out infinite; }
+@keyframes pulseRing { 0%, 100% { transform: scale(1); opacity: 0.6; } 50% { transform: scale(1.15); opacity: 0.15; } }
+.jn-year { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--rose); margin-bottom: 0.3rem; }
+.journey-node.future .jn-year { color: var(--text-light); opacity: 0.6; }
+.jn-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(0.85rem, 1.3vw, 1rem); font-weight: 500; color: var(--text-primary); text-align: center; line-height: 1.35; margin-bottom: 0.2rem; }
+.journey-node.future .jn-title { opacity: 0.45; }
+.jn-sub { font-size: 0.68rem; color: var(--text-light); text-align: center; line-height: 1.4; max-width: 110px; }
+.journey-node.future .jn-sub { opacity: 0.4; }
+.progress-block { margin-top: 4rem; padding-top: 3rem; border-top: 1px solid var(--border); }
+.progress-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.8rem; flex-wrap: wrap; gap: 0.5rem; }
+.progress-label { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-mid); }
+.progress-fraction { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; font-style: italic; color: var(--deep-rose); }
+.progress-bar-wrap { height: 6px; background: var(--progress-track, rgba(196,148,145,0.14)); border-radius: 99px; overflow: hidden; margin-bottom: 0.55rem; }
+.progress-bar-fill { height: 100%; width: 0%; border-radius: 99px; background: linear-gradient(90deg, var(--rose), var(--seafoam)); transition: width 1.8s cubic-bezier(0.25, 0.8, 0.25, 1); }
+.progress-ticks { display: flex; justify-content: space-between; }
+.progress-tick { font-size: 0.6rem; color: var(--text-light); letter-spacing: 0.08em; font-weight: 500; }
+.progress-tick.current { color: var(--rose); font-weight: 700; }
+
+/* ── LIGHTBOX ── */
+#lightbox { display: none; position: fixed; inset: 0; z-index: 8000; background: rgba(11,19,43,0.96); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); align-items: center; justify-content: center; animation: fadeIn 0.25s ease; }
+#lightbox.open { display: flex; }
+
+/* Loading spinner shown while image loads */
+#lb-spinner {
+  position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
+  width: 36px; height: 36px;
+  border: 2px solid rgba(232,167,161,0.15);
+  border-top-color: rgba(232,167,161,0.7);
+  border-radius: 50%;
+  animation: lbSpin 0.7s linear infinite;
+  pointer-events: none;
+}
+#lb-spinner.hidden { display: none; }
+@keyframes lbSpin { to { transform: translate(-50%,-50%) rotate(360deg); } }
+
+#lightbox-img {
+  max-width: min(90vw, 1100px); max-height: 88vh; border-radius: 6px;
+  object-fit: contain; box-shadow: 0 40px 100px rgba(0,0,0,0.6);
+  animation: lbZoom 0.35s cubic-bezier(0.25,0.8,0.25,1);
+  /* Hide until loaded to avoid broken-img flash */
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+#lightbox-img.loaded { opacity: 1; }
+@keyframes lbZoom { from { transform: scale(0.92); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+
+.lb-close { position: fixed; top: 1.5rem; right: 1.75rem; background: none; border: none; color: rgba(212,234,230,0.6); font-size: 1.8rem; cursor: pointer; line-height: 1; transition: color 0.2s, transform 0.2s; z-index: 8001; }
+.lb-close:hover { color: var(--rose); transform: rotate(90deg); }
+.lb-nav { position: fixed; top: 50%; transform: translateY(-50%); background: rgba(15,30,54,0.5); border: 1px solid rgba(232,167,161,0.2); color: rgba(212,234,230,0.7); border-radius: 50%; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 1.1rem; transition: all 0.25s cubic-bezier(0.25,0.8,0.25,1); z-index: 8001; backdrop-filter: blur(4px); }
+.lb-nav:hover { background: rgba(232,167,161,0.2); color: var(--rose); border-color: var(--rose); }
+.lb-prev { left: 1.25rem; }
+.lb-next { right: 1.25rem; }
+.lb-counter { position: fixed; bottom: 1.5rem; left: 50%; transform: translateX(-50%); font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(212,234,230,0.4); z-index: 8001; }
+
+/* ── SUGGEST ── */
+#suggest { padding: 108px 5vw; position: relative; overflow: hidden; }
+.suggest-inner { position: relative; z-index: 1; max-width: 660px; }
+.suggest-form-row { display: flex; gap: 0; margin-top: 2.25rem; border: 1.5px solid var(--border); border-radius: var(--r-card); overflow: hidden; background: var(--card-bg); box-shadow: var(--card-shadow); transition: box-shadow 0.3s cubic-bezier(0.25,0.8,0.25,1), border-color 0.3s cubic-bezier(0.25,0.8,0.25,1); }
+.suggest-form-row:focus-within { box-shadow: 0 0 0 3.5px rgba(139,189,183,0.22), var(--card-shadow); border-color: var(--border-focus); }
+#suggest-input { flex: 1; padding: 1.1rem 1.4rem; background: transparent; border: none; outline: none; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.9rem; font-weight: 300; color: var(--text-primary); letter-spacing: 0.02em; }
+#suggest-input::placeholder { color: var(--text-light); }
+.suggest-submit { background: var(--navy-deep); border: none; padding: 1.1rem 1.5rem; cursor: pointer; color: rgba(212,234,230,0.8); font-size: 1rem; display: flex; align-items: center; justify-content: center; transition: all 0.3s cubic-bezier(0.25,0.8,0.25,1); flex-shrink: 0; min-width: 54px; }
+.suggest-submit:hover { background: var(--deep-rose); color: white; }
+.suggest-submit svg { width: 18px; height: 18px; }
+.suggest-note { font-size: 0.72rem; color: var(--text-light); margin-top: 1rem; letter-spacing: 0.04em; line-height: 1.6; }
+
+@media (max-width: 700px) {
+  .journey-track { flex-direction: column; align-items: flex-start; padding-bottom: 0; }
+  .journey-track::before { top: 28px; left: 27px; width: 1px; height: calc(100% - 28px); right: auto; background: linear-gradient(180deg, var(--rose) 0%, var(--seafoam) 60%, rgba(139,189,183,0.18) 85%, transparent 100%); }
+  .journey-node { flex-direction: row; align-items: flex-start; gap: 1.1rem; flex: none; width: 100%; padding-bottom: 2rem; }
+  .jn-dot-wrap { margin-bottom: 0; flex-shrink: 0; }
+  .jn-title, .jn-sub { text-align: left; }
+  .jn-sub { max-width: none; }
+  .lb-nav { display: none; }
+  .suggest-form-row { flex-direction: column; border-radius: 12px; }
+  .suggest-submit { width: 100%; justify-content: center; padding: 0.85rem; }
+}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <symbol id="wave-art" viewBox="0 0 1400 600" preserveAspectRatio="xMidYMid slice">
+      <path d="M0 300 Q175 240 350 300 Q525 360 700 300 Q875 240 1050 300 Q1225 360 1400 300" stroke="#D4EAE6" stroke-width="1.2" fill="none"/>
+      <path d="M0 360 Q200 300 400 360 Q600 420 800 360 Q1000 300 1200 360 Q1300 390 1400 360" stroke="#E8A7A1" stroke-width="0.8" fill="none"/>
+      <path d="M0 420 Q175 380 350 420 Q525 460 700 420 Q875 380 1050 420 Q1225 460 1400 420" stroke="#D4EAE6" stroke-width="0.6" fill="none"/>
+      <path d="M1250 120 Q1270 80 1310 100 Q1350 120 1330 160 Q1310 200 1270 180 Q1230 160 1250 120Z" stroke="#E8A7A1" stroke-width="1" fill="none"/>
+      <path d="M1250 120 Q1290 140 1310 100" stroke="#E8A7A1" stroke-width="0.7" fill="none"/>
+      <path d="M1310 100 Q1340 130 1330 160" stroke="#E8A7A1" stroke-width="0.7" fill="none"/>
+      <pattern id="dotpat" x="0" y="0" width="36" height="36" patternUnits="userSpaceOnUse">
+        <circle cx="18" cy="18" r="0.9" fill="#D4EAE6"/>
+      </pattern>
+      <rect width="1400" height="600" fill="url(#dotpat)" opacity="0.5"/>
+    </symbol>
+    <symbol id="rose-petals" viewBox="0 0 800 400" preserveAspectRatio="xMidYMid slice">
+      <circle cx="650" cy="180" r="160" stroke="#E8A7A1" stroke-width="0.8" fill="none"/>
+      <circle cx="650" cy="180" r="110" stroke="#D4EAE6" stroke-width="0.5" fill="none"/>
+      <ellipse cx="650" cy="90" rx="22" ry="52" fill="#E8A7A1" opacity="0.5" transform="rotate(0 650 180)"/>
+      <ellipse cx="650" cy="90" rx="22" ry="52" fill="#E8A7A1" opacity="0.4" transform="rotate(45 650 180)"/>
+      <ellipse cx="650" cy="90" rx="22" ry="52" fill="#E8A7A1" opacity="0.35" transform="rotate(90 650 180)"/>
+      <ellipse cx="650" cy="90" rx="22" ry="52" fill="#D4EAE6" opacity="0.35" transform="rotate(135 650 180)"/>
+      <ellipse cx="650" cy="90" rx="22" ry="52" fill="#D4EAE6" opacity="0.3" transform="rotate(180 650 180)"/>
+      <ellipse cx="650" cy="90" rx="22" ry="52" fill="#D4EAE6" opacity="0.3" transform="rotate(225 650 180)"/>
+      <ellipse cx="650" cy="90" rx="22" ry="52" fill="#E8A7A1" opacity="0.3" transform="rotate(270 650 180)"/>
+      <ellipse cx="650" cy="90" rx="22" ry="52" fill="#E8A7A1" opacity="0.3" transform="rotate(315 650 180)"/>
+    </symbol>
+  </defs>
+</svg>
+
+<nav id="main-nav">
+  <div class="nav-logo">bvrry.rose <span class="logo-tulip">🌷</span></div>
+  <div class="nav-links" id="nav-links">
+    <a href="#about">About</a>
+    <a href="#journey">Journey</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#achievements">Credentials</a>
+    <a href="#suggest">Suggest</a>
+    <a href="#subscribe">Connect</a>
+  </div>
+  <div class="nav-right">
+    <button class="theme-btn" id="theme-btn" title="Toggle dark mode" aria-label="Toggle theme">🌙</button>
+    <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<section id="hero">
+  <svg class="hero-waves" viewBox="0 0 1400 900" preserveAspectRatio="xMidYMid slice">
+    <use href="#wave-art"/>
+    <use href="#rose-petals"/>
+  </svg>
+  <div class="hero-content">
+    <div class="hero-avatar-wrap" id="avatar-wrap">
+      <div class="hero-avatar-placeholder" id="avatar-placeholder">
+        <span>🌸</span>
+        Add Photo
+      </div>
+    </div>
+    <div class="hero-eyebrow">
+      <span class="ey-line"></span>
+      <span class="ey-tulip">🌷</span>
+      MBBS · 2026 · Swabi, Pakistan
+      <span class="ey-tulip">🌷</span>
+      <span class="ey-line right"></span>
+    </div>
+    <h1 class="hero-name">
+      <span class="name-first">Aizza</span>
+      <span class="name-last">Nawaz</span>
+    </h1>
+    <p class="hero-class-line">GKMCS &nbsp;·&nbsp; Class of 2031</p>
+    <p class="hero-sub" id="hero-sub-text">
+      MBBS Student at GKMCS
+      <span class="dot-sep">·</span>
+      <span class="future-doctor">Future Doctor</span>
+    </p>
+    <div class="hero-quotes">
+      <blockquote class="hero-quote" id="quote-1">
+        "Healthcare is a human right, not a privilege."
+      </blockquote>
+      <blockquote class="hero-quote" id="quote-2">
+        "Driven to become so financially stable one day that Allah will use my hands to bless others."
+      </blockquote>
+    </div>
+  </div>
+  <div class="hero-scroll-hint">
+    <div class="scroll-line"></div>
+    <div class="scroll-chevron"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<section id="about">
+  <svg class="section-wave" viewBox="0 0 1400 600" preserveAspectRatio="xMidYMid slice"><use href="#wave-art"/></svg>
+  <div class="section-inner">
+    <div class="eyebrow">The Story</div>
+    <h2 class="sec-title">About <em>Me</em></h2>
+    <div class="about-layout">
+      <div class="about-bio-block about-text reveal" id="about-bio">
+        <p class="about-bio-title">A Journey Rooted in Purpose</p>
+        <p>In 2026, <strong>Aizza Nawaz</strong> stepped into the halls of <strong>Gajju Khan Medical College &amp; Hospital</strong> — the beginning of a journey she has spent years preparing her heart for. She is a first-year MBBS student whose path to medicine was never about prestige alone, but about answering a calling.</p>
+        <p>Her deepest conviction is that the fragmented, inequitable state of global healthcare is a wound that needs healing from within the system. She is building herself into that healer — methodically, fiercely, tenderly. Her long-term vision? To establish a <strong>charity</strong> that delivers world-class medical care to communities that have been overlooked and underserved.</p>
+      </div>
+      <div class="reveal" style="transition-delay:0.18s">
+        <div class="metrics-grid">
+          <div class="metric-card"><div class="metric-value"><em>16</em></div><div class="metric-label">Stanford Certificates</div></div>
+          <div class="metric-card"><div class="metric-value"><em>1</em></div><div class="metric-label">Dartmouth Health Certificate</div></div>
+          <div class="metric-card"><div class="metric-value"><em>2026</em></div><div class="metric-label">GKMCS Entry Year</div></div>
+          <div class="metric-card"><div class="metric-value"><em>1st</em></div><div class="metric-label">Year MBBS</div></div>
+          <div class="metric-card" style="grid-column: 1 / -1;"><div class="metric-value"><em>∞</em></div><div class="metric-label">Commitment to Care</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="journey">
+  <svg class="section-wave" viewBox="0 0 1400 600" preserveAspectRatio="xMidYMid slice"><use href="#wave-art"/></svg>
+  <div class="section-inner">
+    <div class="eyebrow">The Academic Path</div>
+    <h2 class="sec-title reveal">Education <em>Journey</em></h2>
+    <div class="journey-track reveal" style="transition-delay:0.1s">
+      <div class="journey-node done">
+        <div class="jn-dot-wrap"><span class="jn-icon">📚</span></div>
+        <div class="jn-year">2023</div>
+        <div class="jn-title">CIE IGCSE</div>
+        <div class="jn-sub">Merryland International School, UAE</div>
+      </div>
+      <div class="journey-node done">
+        <div class="jn-dot-wrap"><span class="jn-icon">🎓</span></div>
+        <div class="jn-year">2025</div>
+        <div class="jn-title">CIE A-Level</div>
+        <div class="jn-sub">Merryland International School, UAE</div>
+      </div>
+      <div class="journey-node active">
+        <div class="jn-dot-wrap"><span class="jn-icon">🏥</span></div>
+        <div class="jn-year">2026 — Present</div>
+        <div class="jn-title">MBBS</div>
+        <div class="jn-sub">Gajju Khan Medical College &amp; Hospital</div>
+      </div>
+      <div class="journey-node future">
+        <div class="jn-dot-wrap">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" opacity="0.45">
+            <circle cx="11" cy="11" r="10" stroke="#8BBDB7" stroke-width="1"/>
+            <line x1="11" y1="5" x2="11" y2="17" stroke="#8BBDB7" stroke-width="1.2" stroke-linecap="round"/>
+            <line x1="5" y1="11" x2="17" y2="11" stroke="#8BBDB7" stroke-width="1.2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="jn-year">The Future</div>
+        <div class="jn-title">Specialisation</div>
+        <div class="jn-sub">A calling, still becoming</div>
+      </div>
+    </div>
+    <div class="progress-block reveal" style="transition-delay:0.2s">
+      <div class="progress-header">
+        <span class="progress-label">MBBS Degree Progress</span>
+        <span class="progress-fraction">Year 1 of 5</span>
+      </div>
+      <div class="progress-bar-wrap">
+        <div class="progress-bar-fill" id="mbbs-bar"></div>
+      </div>
+      <div class="progress-ticks">
+        <span class="progress-tick current">Year 1</span>
+        <span class="progress-tick">Year 2</span>
+        <span class="progress-tick">Year 3</span>
+        <span class="progress-tick">Year 4</span>
+        <span class="progress-tick">Year 5</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="gallery">
+  <svg class="section-wave" viewBox="0 0 1400 600" preserveAspectRatio="xMidYMid slice"><use href="#wave-art"/></svg>
+  <div class="section-inner">
+    <div class="gallery-header reveal">
+      <div>
+        <div class="eyebrow">Digital Rose Diary</div>
+        <h2 class="sec-title">The Digital <em>Rose Diary</em></h2>
+        <p class="gallery-subtext">Curated moments from the space between science and story.</p>
+      </div>
+      <a href="https://www.instagram.com/bvrry.rose/" target="_blank" rel="noopener" class="ig-btn">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        @bvrry.rose
+      </a>
+    </div>
+    <div id="gallery-grid"></div>
+  </div>
+</section>
+
+<section id="achievements">
+  <svg class="section-wave" viewBox="0 0 800 400" preserveAspectRatio="xMidYMid slice"><use href="#rose-petals"/></svg>
+  <div class="section-inner">
+    <div class="eyebrow">Academic Milestones</div>
+    <h2 class="sec-title reveal">Credentials &amp; <em>Certificates</em></h2>
+    <p class="achieve-intro reveal" style="transition-delay:0.1s">
+      A testament to relentless curiosity — <strong>Aizza has earned 17 professional certifications</strong> from Stanford University School of Medicine and Dartmouth Health, spanning neurology, cardiology, palliative care, maternal health, AI in medicine, health equity, and emerging biotechnology.
+    </p>
+    <div id="certs-grid"></div>
+  </div>
+</section>
+
+<section id="subscribe">
+  <svg class="sub-waves" viewBox="0 0 1400 600" preserveAspectRatio="xMidYMid slice"><use href="#wave-art"/></svg>
+  <div class="sub-inner">
+    <span class="sub-rose">🌹</span>
+    <h2 class="sub-headline">Stay <em style="font-style:italic;color:var(--rose)">Connected</em></h2>
+    <p class="sub-cta">Let's stay connected! ✨ Leave your email to get sweet little updates and notifications whenever she shares a new post.</p>
+    <div class="sub-form">
+      <div class="sub-input-wrap">
+        <span class="rose-icon">🌹</span>
+        <input type="email" id="sub-email" name="email" placeholder="Your email address" autocomplete="email">
+      </div>
+      <button class="sub-btn" id="sub-btn" onclick="handleSubscribe()">Subscribe Now</button>
+    </div>
+  </div>
+</section>
+
+<section id="suggest">
+  <svg class="section-wave" viewBox="0 0 1400 600" preserveAspectRatio="xMidYMid slice"><use href="#wave-art"/></svg>
+  <div class="suggest-inner section-inner">
+    <div class="eyebrow">Shape the Journal</div>
+    <h2 class="sec-title reveal">Suggest a <em>Post</em> 🌷</h2>
+    <p class="reveal" style="font-size:0.95rem;color:var(--text-mid);line-height:1.85;font-weight:300;max-width:520px;transition-delay:0.1s">
+      Have a topic, study routine, or medical school insight you want to see covered next on Instagram? Drop your suggestion below.
+    </p>
+    <div class="suggest-form-row reveal" style="transition-delay:0.2s">
+      <input type="text" id="suggest-input" placeholder="Suggest my next post topic…" autocomplete="off">
+      <button class="suggest-submit" id="suggest-btn" onclick="handleSuggest()" title="Submit suggestion" aria-label="Submit">
+        <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3 10h14M11 4l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
+    <p class="suggest-note reveal" style="transition-delay:0.25s">Suggestions go directly to Aizza — she reads every one.</p>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div id="lightbox" onclick="closeLightbox()">
+  <button class="lb-close" onclick="closeLightbox()" aria-label="Close">✕</button>
+  <button class="lb-nav lb-prev" onclick="event.stopPropagation();lbNavigate(-1)" aria-label="Previous">‹</button>
+  <div id="lb-spinner"></div>
+  <img id="lightbox-img" src="" alt="Gallery photo" onclick="event.stopPropagation()">
+  <button class="lb-nav lb-next" onclick="event.stopPropagation();lbNavigate(1)" aria-label="Next">›</button>
+  <div class="lb-counter" id="lb-counter"></div>
+</div>
+
+<footer>
+  <p>© 2026 <span class="footer-rose">Aizza Nawaz</span> · Gajju Khan Medical College · Swabi, Pakistan</p>
+  <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:0.85rem;color:rgba(212,234,230,0.25)">Healthcare is a human right.</p>
+</footer>
+
+<div id="admin-overlay" onclick="handleOverlayClick(event)">
+  <div id="admin-panel">
+    <div class="ap-header">
+      <h3>⚙ Admin Dashboard</h3>
+      <button class="ap-close" onclick="closeAdmin()">✕</button>
+    </div>
+    <div class="ap-body">
+      <div class="ap-sec">
+        <div class="ap-sec-title">Profile Photo</div>
+        <div class="af">
+          <label>Photo URL (Unsplash, Drive, or direct link)</label>
+          <input type="text" id="a-photo-url" placeholder="https://drive.google.com/file/d/FILE_ID/view  or  https://...">
+        </div>
+        <button class="ap-btn" onclick="adminSetPhoto()">Update Profile Photo</button>
+        <p class="ap-hint">Google Drive links are auto-converted to a direct-stream URL.</p>
+      </div>
+      <div class="ap-sec">
+        <div class="ap-sec-title">Text Controls</div>
+        <div class="af"><label>Hero Subtitle</label><input type="text" id="a-hero-sub" placeholder="MBBS Student at GKMCS · Future Doctor"></div>
+        <div class="af"><label>Quote 1</label><input type="text" id="a-quote1" placeholder="Healthcare is a human right..."></div>
+        <div class="af"><label>Quote 2</label><textarea id="a-quote2" placeholder="Driven by a vision..."></textarea></div>
+        <div class="af"><label>About Bio (opening paragraph)</label><textarea id="a-bio" rows="5" placeholder="In 2026, Aizza Nawaz..."></textarea></div>
+        <button class="ap-btn" onclick="applyText()">Apply Text Changes</button>
+      </div>
+      <div class="ap-sec">
+        <div class="ap-sec-title">Gallery Manager</div>
+        <div class="af">
+          <label>Image URL (Unsplash, Drive, or direct)</label>
+          <input type="text" id="a-img-url" placeholder="https://drive.google.com/file/d/FILE_ID/view  or  https://...">
+        </div>
+        <div class="af"><label>Caption</label><input type="text" id="a-img-cap" placeholder="Caption text..."></div>
+        <button class="ap-btn" onclick="adminAddGallery()">Add Image to Gallery</button>
+        <p class="ap-hint">Press <strong>Ctrl+Shift+X</strong> to toggle delete buttons on cards.</p>
+      </div>
+      <div class="ap-sec">
+        <div class="ap-sec-title">Certificate Manager</div>
+        <div class="af"><label>Title</label><input type="text" id="a-ct" placeholder="Course or certificate title..."></div>
+        <div class="af"><label>Institution</label><input type="text" id="a-ci" value="Stanford University" placeholder="Stanford University"></div>
+        <div class="af"><label>Year</label><input type="text" id="a-cy" value="2026" placeholder="2026"></div>
+        <div class="af"><label>Credits</label><input type="text" id="a-cc" placeholder="0.50 AMA PRA Category 1 Credits™"></div>
+        <div class="af"><label>Description</label><textarea id="a-cd" rows="2" placeholder="Brief description..."></textarea></div>
+        <div class="af">
+          <label>Certificate Link (Google Drive PDF or direct URL)</label>
+          <input type="text" id="a-cl" placeholder="https://drive.google.com/file/d/FILE_ID/view">
+        </div>
+        <button class="ap-btn" onclick="adminAddCert()">Add Certificate Card</button>
+        <p class="ap-hint">Press <strong>Ctrl+Shift+X</strong> to toggle delete buttons on cards.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="toast" role="status" aria-live="polite"></div>
+
+<script>
+/* ══════════════════════════════════════════════════════
+   URL TRANSLATION ENGINE  v4
+   
+   KEY FIX vs v3:
+   • driveImageChain() primary is now lh3.googleusercontent.com/d/ID
+     This URL does NOT redirect and is CORS-safe for dynamic img.src assignment.
+   • uc?export=view is demoted to fallback1 (works on page-load but
+     can fail when set via JS after a click due to redirect/CORS).
+   • thumbnail?sz=w1200 is fallback2.
+   
+   This fixes the broken lightbox image bug where the lightbox img.src
+   was being set to a Drive URL that triggered a redirect the browser
+   blocked in a dynamically-assigned src context.
+══════════════════════════════════════════════════════ */
+
+function extractDriveFileId(url) {
+  const PATTERNS = [
+    /\/file\/d\/([a-zA-Z0-9_-]{15,})/,
+    /[?&]id=([a-zA-Z0-9_-]{15,})/,
+    /\/uc\?[^"]*id=([a-zA-Z0-9_-]{15,})/,
+    /\/thumbnail\?[^"]*id=([a-zA-Z0-9_-]{15,})/,
+    /open\?id=([a-zA-Z0-9_-]{15,})/,
+    /\/d\/([a-zA-Z0-9_-]{15,})[/?#]/,
+    /\/d\/([a-zA-Z0-9_-]{15,})$/,
+    /folders\/([a-zA-Z0-9_-]{15,})/,
+  ];
+  for (const p of PATTERNS) {
+    const m = url.match(p);
+    if (m?.[1]) return m[1];
+  }
+  return '';
+}
+
+/**
+ * FIX: lh3 is now PRIMARY — no redirects, CORS-safe for JS img.src.
+ * uc?export=view becomes fallback (works on initial HTML parse but not
+ * always when assigned dynamically post-click).
+ */
+function driveImageChain(fileId) {
+  return {
+    primary:   `https://lh3.googleusercontent.com/d/${fileId}`,
+    fallback1: `https://drive.google.com/uc?export=view&id=${fileId}`,
+    fallback2: `https://drive.google.com/thumbnail?id=${fileId}&sz=w1200`,
+  };
+}
+
+function translateUrl(raw) {
+  if (!raw) return '';
+  const url = raw.trim();
+
+  if (url.includes('drive.google.com') || url.includes('docs.google.com')) {
+    const id = extractDriveFileId(url);
+    if (!id) return url;
+    const isPdf = /\.pdf/i.test(url) || url.includes('/preview') || url.includes('export=download');
+    if (isPdf) return `https://drive.google.com/file/d/${id}/preview`;
+    // For images: use lh3 as primary (CORS-safe, no redirect)
+    return driveImageChain(id).primary;
+  }
+
+  if (url.includes('dropbox.com')) {
+    return url
+      .replace(/[?&]dl=0/, '').replace(/[?&]dl=1/, '')
+      .replace('www.dropbox.com', 'dl.dropboxusercontent.com')
+      + (url.includes('?') ? '&raw=1' : '?raw=1');
+  }
+
+  if (url.includes('1drv.ms') || url.includes('onedrive.live.com')) {
+    const encoded = encodeURIComponent(url);
+    return `https://api.onedrive.com/v1.0/shares/${encoded}/root/content`;
+  }
+
+  return url;
+}
+
+/**
+ * Build inline onerror chain for Drive images.
+ * Now: lh3 (primary) → uc?export=view (fallback1) → thumbnail (fallback2) → placeholder
+ */
+function driveErrorChain(fileId, placeholderOneliner) {
+  const chain = driveImageChain(fileId);
+  return `onerror="var s=+(this.dataset.stage||0);if(s===0){this.dataset.stage=1;this.src='${chain.fallback1}';}else if(s===1){this.dataset.stage=2;this.src='${chain.fallback2}';}else{this.onerror=null;${placeholderOneliner}}"`;
+}
+
+/* ═══ STORAGE ═══ */
+function load(key, fallback) {
+  try { const v = localStorage.getItem(key); return v ? JSON.parse(v) : fallback; }
+  catch { return fallback; }
+}
+function save(key, v) {
+  try { localStorage.setItem(key, JSON.stringify(v)); } catch {}
+}
+
+/* ═══ DEFAULT DATA ═══ */
+const DEFAULT_PHOTO = "https://lh3.googleusercontent.com/d/12pZ5rk9iQ5EswbUadt0txP6EbXeq9LcJ";
+
+const DEFAULT_CERTS = [
+  { title:"Upstander Course 2.0 on Addressing Bias in the Workplace",                                    inst:"Stanford University", year:"2026", credits:"0.50 AMA PRA Category 1 Credit(s)™", desc:"", link:"https://drive.google.com/file/d/160LgyAXcalbr-rIW6F5yCLG3rfaQbRNO/preview" },
+  { title:"Unconscious Bias in Medicine",                                                                 inst:"Stanford University", year:"2026", credits:"1.00 AMA PRA Category 1 Credit(s)™", desc:"", link:"https://drive.google.com/file/d/16OR4_rJ7JYvBB0yjPtiqEwA4STyEifva/preview" },
+  { title:"The Right Ventricle: Forgotten No More!",                                                     inst:"Stanford University", year:"2026", credits:"0.75 AMA PRA Category 1 Credit(s)™", desc:"", link:"https://drive.google.com/file/d/1pRkysTL73OW5ZV_vSfbe8E0SJfyExOBP/preview" },
+  { title:"CRISPR Breakthroughs — Bridging Science and Treatment",                                       inst:"Stanford University", year:"2026", credits:"0.50 AMA PRA Category 1 Credit(s)™", desc:"", link:"https://drive.google.com/file/d/1bVU4KXtYMaVRgt1-Ou9ATLwWpp8hEZo5/preview" },
+  { title:"Stanford Medcast Episode 108: Emerging Technology Mini-Series",                               inst:"Stanford University", year:"2026", credits:"0.50 AMA PRA Category 1 Credit(s)™", desc:"", link:"https://drive.google.com/file/d/1Bkg5imzt8TkztZEPICV7rnleji2TL24-/preview" },
+  { title:"Stanford Medcast Episode 97: Maternal Health – Unpacking Obstetric Emergencies",              inst:"Stanford University", year:"2026", credits:"0.25 AMA PRA Category 1 Credit(s)™", desc:"", link:"https://drive.google.com/file/d/14HDglezvUfxHjygCZ_zS0T4U8OETN8v6/preview" },
+  { title:"Expanding the Indications for Mechanical Thrombectomy",                                       inst:"Stanford University", year:"2026", credits:"0.50 AMA PRA Category 1 Credit(s)™", desc:"", link:"https://drive.google.com/file/d/1sSSV7MFKkatcLalrfcMTmcstw9S0IuVQ/preview" },
+  { title:"Deep Learning and AI in Neuro-Ophthalmology: What is the Clinical Utility?",                  inst:"Stanford University", year:"2026", credits:"1.00 AMA PRA Category 1 Credit(s)™", desc:"", link:"https://drive.google.com/file/d/10bzzv87EDqUpfoXzud09ZSwvASg3MBV3/preview" },
+  { title:"There's Something in the Air: Particulate Matter Pollution and Cardiovascular Disease",       inst:"Stanford University", year:"2026", credits:"0.75 AMA PRA Category 1 Credit(s)™", desc:"", link:"https://drive.google.com/file/d/1D5t6eF2aBxpsZ_kvtgkzYK-gum58cBG0/preview" },
+  { title:"Multiple Sclerosis: Case Studies on the Importance of Early Diagnosis and Optimal Treatment", inst:"Stanford University", year:"2026", credits:"0.50 AMA PRA Category 1 Credit(s)™", desc:"", link:"https://drive.google.com/file/d/1QIxOW5fhPvkURc5PC_t7sobva9gaWQq1/preview" },
+  { title:"GIM – Tick-borne Illnesses",                                                                  inst:"Dartmouth Health",   year:"2026", credits:"0.75 AMA PRA Category 1 Credit(s)™", desc:"", link:"https://drive.google.com/file/d/1shMxwv81JOXBViRT-8f_BURfAiyvYmC-/preview" },
+  { title:"The Role of Norepinephrine in White Matter Development and Disease",                          inst:"Stanford University", year:"2026", credits:"0.50 AMA PRA Category 1 Credit(s)™", desc:"", link:"https://drive.google.com/file/d/1_Bj4VnEDRsDyBcDsV5C5oyAf5jjaCgvO/preview" },
+  { title:"Pediatric Lung and Heart/Lung Transplantation",                                               inst:"Stanford University", year:"2026", credits:"1.00 AMA PRA Category 1 Credit(s)™", desc:"", link:"https://drive.google.com/file/d/1AvPV0ZIAe5XdhPcHgIlVUvUQoQyPJVSC/preview" },
+  { title:"Stanford Medcast Episode 100: Women in Medicine – Maya Adam, MD",                             inst:"Stanford University", year:"2026", credits:"0.50 AMA PRA Category 1 Credit(s)™", desc:"", link:"https://drive.google.com/file/d/197BMqABlbk_4WQdmPWGXj18W_HqOgSU6/preview" },
+];
+
+/* ── Gallery: store both the display URL (lh3) AND the original Drive file ID
+      so the lightbox can build its own fallback chain independently ── */
+const GALLERY_FILE_IDS = [
+  '1-unZIYHOOFl_XAvH_lVjK_ieu3qktTPR',
+  '1_GtAnxyGYueKlkUoWjNGYG3idSn-KsHQ',
+  '1P5gLM6_36iEg5_kKnSxPxjUMFRZV7o1Q',
+  '1bRkQRqERqj5eNN_cnFrf8_hxFCGXyzRk',
+  '16525gLjh0pcJxa4T23ZQoWXppsUZEQBi',
+  '1F0UsdUt46p86S-e10nVK-klVoIlQMlXL',
+  '1aTOby21VpucNDV09dw1Yh3hlSdLGSV1o',
+  '1X5b40cRKIYkXipdlsXy9W2k_d03ZpWXG',
+  '1wqv7lEqTEsXFGL_fAaooXQntehAslGvj',
+  '1UBYZSDU4UFbS-Tb76bDZT4OQ2IpTzinU',
+];
+
+const DEFAULT_GALLERY = GALLERY_FILE_IDS.map(id => ({
+  url:     `https://lh3.googleusercontent.com/d/${id}`,  // lh3 primary — no redirects
+  driveId: id,
+  cap:     'Gallery image',
+}));
+
+/* ═══ STATE ═══ */
+let gallery    = load('an_gallery', DEFAULT_GALLERY);
+let certs      = load('an_certs',   DEFAULT_CERTS);
+let profileUrl = load('an_photo',   DEFAULT_PHOTO);
+let adminOpen  = false;
+let deleteMode = false;
+
+/* ═══ PROFILE PHOTO ═══ */
+function applyProfilePhoto(url) {
+  const wrap = document.getElementById('avatar-wrap');
+  if (!url) {
+    wrap.innerHTML = `<div class="hero-avatar-placeholder" id="avatar-placeholder"><span>🌸</span>Add Photo</div>`;
+    return;
+  }
+  const phReplace = `this.closest('#avatar-wrap').innerHTML='<div class=hero-avatar-placeholder><span>🌸</span>Photo unavailable</div>'`;
+  const driveId = extractDriveFileId(url);
+  const onerr = driveId ? driveErrorChain(driveId, phReplace) : `onerror="this.onerror=null;${phReplace}"`;
+  wrap.innerHTML = `<img class="hero-avatar" src="${escAttr(url)}" alt="Aizza Nawaz" id="avatar-img" ${onerr}>`;
+}
+
+function adminSetPhoto() {
+  const raw = val('a-photo-url');
+  if (!raw) { toast('Please enter a photo URL.'); return; }
+  const url = translateUrl(raw);
+  profileUrl = url;
+  save('an_photo', url);
+  applyProfilePhoto(url);
+  clear('a-photo-url');
+  toast('Profile photo updated 🌸');
+}
+
+/* ═══ RENDER GALLERY ═══ */
+function renderGallery() {
+  const grid = document.getElementById('gallery-grid');
+  if (!gallery.length) {
+    grid.innerHTML = `<p style="color:var(--text-light);font-size:0.85rem;font-style:italic;padding:2rem 0;grid-column:1/-1;">No gallery images yet.</p>`;
+    return;
+  }
+  grid.innerHTML = gallery.map((item, i) => {
+    const phReplace = `this.style.opacity='0.15'`;
+    // Use stored driveId if available, else extract from URL
+    const driveId = item.driveId || (item.url.includes('drive.google.com') || item.url.includes('googleusercontent.com') ? extractDriveFileId(item.url) || item.url.split('/d/')[1] : '');
+    const onerr = driveId ? driveErrorChain(driveId, phReplace) : `onerror="this.style.opacity='0.15'"`;
+    // Store driveId on the element so lightbox can use it
+    return `
+    <div class="g-item" onclick="openLightbox(${i})" data-index="${i}">
+      <img src="${escAttr(item.url)}" alt="Gallery photo ${i+1}" loading="lazy"
+           data-drive-id="${escAttr(driveId)}"
+           data-fallback1="${escAttr(driveId ? `https://drive.google.com/uc?export=view&id=${driveId}` : '')}"
+           data-fallback2="${escAttr(driveId ? `https://drive.google.com/thumbnail?id=${driveId}&sz=w1200` : '')}"
+           ${onerr}>
+      <button class="g-del" onclick="event.stopPropagation();delGallery(${i})" title="Remove">✕</button>
+    </div>`;
+  }).join('');
+  syncDeleteMode();
+  observeReveal();
+}
+
+function delGallery(i) {
+  gallery.splice(i, 1);
+  save('an_gallery', gallery);
+  renderGallery();
+  toast('Image removed.');
+}
+
+function adminAddGallery() {
+  const raw = val('a-img-url');
+  const cap = val('a-img-cap');
+  if (!raw) { toast('Please enter an image URL.'); return; }
+  const driveId = raw.includes('drive.google.com') ? extractDriveFileId(raw) : '';
+  const url = translateUrl(raw);
+  gallery.push({ url, driveId, cap: cap || 'Gallery image' });
+  save('an_gallery', gallery);
+  renderGallery();
+  clear('a-img-url'); clear('a-img-cap');
+  toast('Image added to gallery 🌸');
+}
+
+const convertDriveUrl = translateUrl;
+
+/* ═══ RENDER CERTS ═══ */
+function renderCerts() {
+  const grid = document.getElementById('certs-grid');
+  if (!certs.length) {
+    grid.innerHTML = `<p style="color:var(--text-light);font-size:0.85rem;font-style:italic;padding:2rem 0;">No certificates yet.</p>`;
+    return;
+  }
+  grid.innerHTML = certs.map((c, i) => `
+    <div class="cert-card reveal" style="transition-delay:${(i%3)*0.07}s">
+      <div class="cert-inst">${escHtml(c.inst)}</div>
+      <div class="cert-title">${escHtml(c.title)}</div>
+      <div class="cert-meta">
+        <span class="cert-year">${escHtml(c.year)}</span>
+        <span class="cert-credits">${escHtml(c.credits)}</span>
+      </div>
+      <p class="cert-desc">${escHtml(c.desc)}</p>
+      ${c.link
+        ? `<a class="cert-link" href="${escAttr(c.link)}" target="_blank" rel="noopener">View Certificate →</a>`
+        : `<span class="cert-link" style="opacity:0.35;cursor:default;border-color:transparent;pointer-events:none">Certificate on file</span>`
+      }
+      <button class="cert-del" onclick="delCert(${i})" title="Remove">✕</button>
+    </div>
+  `).join('');
+  syncDeleteMode();
+  observeReveal();
+}
+
+function delCert(i) {
+  certs.splice(i, 1);
+  save('an_certs', certs);
+  renderCerts();
+  toast('Certificate removed.');
+}
+
+function adminAddCert() {
+  const title = val('a-ct');
+  if (!title) { toast('Please enter a certificate title.'); return; }
+  const rawLink = val('a-cl');
+  certs.push({
+    title,
+    inst:    val('a-ci') || 'Stanford University',
+    year:    val('a-cy') || '2026',
+    credits: val('a-cc'),
+    desc:    val('a-cd'),
+    link:    rawLink ? convertDriveUrl(rawLink) : '',
+  });
+  save('an_certs', certs);
+  renderCerts();
+  ['a-ct','a-cc','a-cd','a-cl'].forEach(clear);
+  toast('Certificate added ✦');
+}
+
+/* ═══ TEXT CONTROLS ═══ */
+function applyText() {
+  const sub = val('a-hero-sub');
+  const q1  = val('a-quote1');
+  const q2  = val('a-quote2');
+  const bio = val('a-bio');
+  if (sub) {
+    const el = document.getElementById('hero-sub-text');
+    el.innerHTML = escHtml(sub).replace(' · ', ' <span class="dot-sep">·</span> ');
+  }
+  if (q1) document.getElementById('quote-1').childNodes[0].textContent = `"${q1.replace(/^["']+|["']+$/g,'')}"`;
+  if (q2) {
+    const q = document.getElementById('quote-2');
+    const rose = q.querySelector('.hero-quote-rose');
+    q.childNodes[0].textContent = `"${q2.replace(/^["']+|["']+$/g,'')}"`;
+    if (!rose) q.insertAdjacentHTML('beforeend','<span class="hero-quote-rose">🌹</span>');
+  }
+  if (bio) {
+    const p = document.querySelector('#about-bio p:not(.about-bio-title)');
+    if (p) p.innerHTML = bio;
+  }
+  toast('Changes applied ✦');
+}
+
+/* ═══ ADMIN PANEL ═══ */
+function openAdmin()  { adminOpen = true;  document.getElementById('admin-overlay').classList.add('open'); }
+function closeAdmin() { document.getElementById('admin-overlay').classList.remove('open'); adminOpen = false; }
+function handleOverlayClick(e) { if (e.target === document.getElementById('admin-overlay')) closeAdmin(); }
+
+/* ═══ DELETE MODE ═══ */
+function syncDeleteMode() {
+  const show = deleteMode ? 'flex' : 'none';
+  document.querySelectorAll('.g-del, .cert-del').forEach(b => b.style.display = show);
+}
+function toggleDeleteMode() {
+  deleteMode = !deleteMode;
+  syncDeleteMode();
+  toast(deleteMode ? '🗑 Delete mode ON — click ✕ to remove cards.' : 'Delete mode off.');
+}
+
+/* ═══ KEYBOARD SHORTCUTS ═══ */
+document.addEventListener('keydown', e => {
+  if (e.ctrlKey && e.shiftKey) {
+    if (e.key === 'A') { e.preventDefault(); adminOpen ? closeAdmin() : openAdmin(); }
+    if (e.key === 'X') { e.preventDefault(); toggleDeleteMode(); }
+  }
+});
+
+/* ═══ SUBSCRIBE ═══ */
+async function handleSubscribe() {
+  const emailEl = document.getElementById('sub-email');
+  const btn     = document.getElementById('sub-btn');
+  const em      = emailEl.value.trim();
+  if (!em || !em.includes('@') || !em.includes('.')) { toast('Please enter a valid email address.'); return; }
+  btn.textContent = 'Sending…'; btn.disabled = true; btn.style.opacity = '0.7';
+  try {
+    const res = await fetch('https://formspree.io/f/xojzjrqk', {
+      method: 'POST',
+      headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: em }),
+    });
+    if (res.ok) {
+      emailEl.value = ''; btn.textContent = 'Subscribed ✓'; btn.style.background = 'var(--seafoam-muted)';
+      toast('Thank you! You\'re subscribed 🌹');
+      setTimeout(() => { btn.textContent = 'Subscribe Now'; btn.disabled = false; btn.style.opacity = '1'; btn.style.background = ''; }, 4000);
+    } else {
+      const data = await res.json().catch(() => ({}));
+      toast(data?.errors?.[0]?.message || 'Something went wrong. Please try again.');
+      btn.textContent = 'Subscribe Now'; btn.disabled = false; btn.style.opacity = '1';
+    }
+  } catch {
+    toast('Network error — please check your connection and try again.');
+    btn.textContent = 'Subscribe Now'; btn.disabled = false; btn.style.opacity = '1';
+  }
+}
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('sub-email').addEventListener('keydown', e => { if (e.key === 'Enter') handleSubscribe(); });
+});
+
+/* ═══ THEME TOGGLE ═══ */
+const themeBtn = document.getElementById('theme-btn');
+let darkMode = load('an_dark', true);
+function applyTheme() {
+  const body = document.body;
+  if (darkMode) { body.classList.add('dark'); body.classList.remove('light'); document.documentElement.setAttribute('data-theme','dark'); }
+  else           { body.classList.add('light'); body.classList.remove('dark'); document.documentElement.setAttribute('data-theme','light'); }
+  themeBtn.textContent = darkMode ? '☀️' : '🌙';
+}
+themeBtn.addEventListener('click', () => { darkMode = !darkMode; save('an_dark', darkMode); applyTheme(); });
+applyTheme();
+
+/* ═══ SCROLL REVEAL ═══ */
+function observeReveal() {
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
+  }, { threshold: 0.07 });
+  document.querySelectorAll('.reveal:not(.in)').forEach(el => obs.observe(el));
+}
+
+/* ═══ NAV MOBILE ═══ */
+function toggleMenu() { document.getElementById('nav-links').classList.toggle('open'); }
+document.querySelectorAll('#nav-links a').forEach(a => {
+  a.addEventListener('click', () => document.getElementById('nav-links').classList.remove('open'));
+});
+
+/* ═══ TOAST ═══ */
+function toast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg; t.classList.add('show');
+  clearTimeout(t._tid);
+  t._tid = setTimeout(() => t.classList.remove('show'), 3600);
+}
+
+/* ═══ HELPERS ═══ */
+function val(id)    { return (document.getElementById(id)?.value || '').trim(); }
+function clear(id)  { const el = document.getElementById(id); if (el) el.value = ''; }
+function escHtml(s) { return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+function escAttr(s) { return String(s||'').replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+/* ══════════════════════════════════════════════════════
+   LIGHTBOX ENGINE  — FIXED
+   
+   Root cause of the original bug:
+   The lightbox was setting img.src = gallery[i].url where
+   gallery[i].url was a Drive uc?export=view URL. This URL
+   issues a 302 redirect. On initial HTML parse, browsers
+   follow the redirect for <img src="...">. But when JS sets
+   img.src dynamically after a user click, many browsers
+   (especially with stricter same-origin/CORS policies or
+   when the Drive session cookie is absent) refuse to follow
+   the redirect and the image breaks.
+   
+   Fix: Use lh3.googleusercontent.com/d/FILE_ID as the lightbox
+   src. This URL serves the image directly — no redirect, no
+   CORS issue. We also add a proper onerror fallback chain on
+   the lightbox <img> itself.
+══════════════════════════════════════════════════════ */
+let lbIndex = 0;
+
+function openLightbox(i) {
+  if (!gallery.length) return;
+  lbIndex = i;
+  renderLightboxFrame();
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow = '';
+  // Reset lightbox img state
+  const img = document.getElementById('lightbox-img');
+  img.classList.remove('loaded');
+  img.removeAttribute('data-stage');
+  img.onerror = null;
+}
+
+function lbNavigate(dir) {
+  lbIndex = (lbIndex + dir + gallery.length) % gallery.length;
+  renderLightboxFrame();
+}
+
+function renderLightboxFrame() {
+  const item    = gallery[lbIndex];
+  const img     = document.getElementById('lightbox-img');
+  const spinner = document.getElementById('lb-spinner');
+
+  // Reset state for new image
+  img.classList.remove('loaded');
+  img.removeAttribute('data-stage');
+  img.onerror = null;
+  spinner.classList.remove('hidden');
+
+  // Resolve the best URL for this item
+  // Prefer stored driveId; fall back to extracting from URL
+  const driveId = item.driveId || (() => {
+    const u = item.url || '';
+    if (u.includes('googleusercontent.com')) {
+      // lh3.googleusercontent.com/d/FILE_ID
+      const m = u.match(/\/d\/([a-zA-Z0-9_-]{15,})/);
+      return m ? m[1] : '';
+    }
+    return extractDriveFileId(u);
+  })();
+
+  // Build the URL chain for this lightbox image
+  let primaryUrl, fb1Url, fb2Url;
+  if (driveId) {
+    const chain = driveImageChain(driveId);
+    primaryUrl = chain.primary;   // lh3
+    fb1Url     = chain.fallback1; // uc?export=view
+    fb2Url     = chain.fallback2; // thumbnail
+  } else {
+    // Non-Drive URL — use as-is
+    primaryUrl = item.url;
+    fb1Url     = '';
+    fb2Url     = '';
+  }
+
+  // Wire up the fallback chain directly on the img element
+  img.onerror = function() {
+    const stage = +(this.dataset.stage || 0);
+    if (stage === 0 && fb1Url) {
+      this.dataset.stage = 1;
+      this.src = fb1Url;
+    } else if (stage <= 1 && fb2Url) {
+      this.dataset.stage = 2;
+      this.src = fb2Url;
+    } else {
+      // All fallbacks exhausted — show subtle broken state
+      this.onerror = null;
+      this.style.opacity = '0.15';
+      this.classList.add('loaded'); // stop spinner
+      spinner.classList.add('hidden');
+    }
+  };
+
+  img.onload = function() {
+    this.classList.add('loaded');
+    spinner.classList.add('hidden');
+  };
+
+  img.alt  = item.cap || `Gallery photo ${lbIndex + 1}`;
+  img.src  = primaryUrl;
+
+  document.getElementById('lb-counter').textContent = `${lbIndex + 1} / ${gallery.length}`;
+}
+
+// Keyboard navigation
+document.addEventListener('keydown', e => {
+  const lb = document.getElementById('lightbox');
+  if (!lb.classList.contains('open')) return;
+  if (e.key === 'Escape')    closeLightbox();
+  if (e.key === 'ArrowLeft')  lbNavigate(-1);
+  if (e.key === 'ArrowRight') lbNavigate(1);
+});
+
+/* ═══ SUGGEST A POST ═══ */
+async function handleSuggest() {
+  const inputEl = document.getElementById('suggest-input');
+  const btn     = document.getElementById('suggest-btn');
+  const msg     = inputEl.value.trim();
+  if (!msg) { toast('Please write a suggestion first.'); return; }
+  btn.style.opacity = '0.5'; btn.style.pointerEvents = 'none';
+  try {
+    const res = await fetch('https://formspree.io/f/xojzjrqk', {
+      method: 'POST',
+      headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+      body: JSON.stringify({ suggestion: msg }),
+    });
+    if (res.ok) { inputEl.value = ''; toast('Suggestion sent! Thank you 🌸'); }
+    else { toast('Something went wrong — please try again.'); }
+  } catch { toast('Network error — please check your connection.'); }
+  finally { btn.style.opacity = '1'; btn.style.pointerEvents = 'auto'; }
+}
+document.addEventListener('DOMContentLoaded', () => {
+  const si = document.getElementById('suggest-input');
+  if (si) si.addEventListener('keydown', e => { if (e.key === 'Enter') handleSuggest(); });
+});
+
+/* ═══ PROGRESS BAR ═══ */
+function initProgressBar() {
+  const bar = document.getElementById('mbbs-bar');
+  if (!bar) return;
+  const pct = (1 / 5) * 100;
+  const obs = new IntersectionObserver(entries => {
+    if (entries[0].isIntersecting) { bar.style.width = pct + '%'; obs.disconnect(); }
+  }, { threshold: 0.5 });
+  obs.observe(bar);
+}
+
+/* ═══ INIT ═══ */
+applyProfilePhoto(profileUrl);
+renderGallery();
+renderCerts();
+observeReveal();
+initProgressBar();
+</script>
+</body>
+</html>
